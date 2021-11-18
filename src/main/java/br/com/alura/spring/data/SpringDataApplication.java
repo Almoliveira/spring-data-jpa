@@ -20,6 +20,7 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudFuncionarioService funcionarioService;
 
 	private final CrudUnidadeTrabalhoService unidadeTrabalhoService;
+	private final RelatoriosService relatoriosService;
 	private Boolean system = true;
 	
 	public SpringDataApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService, 
@@ -37,28 +38,34 @@ public class SpringDataApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
 		
-		while(system) {
-			System.out.println("Qual acao voce quer executar");
+		while (system) {
+			System.out.println("Qual função deseja executar?");
 			System.out.println("0 - Sair");
-			System.out.println("1 - Cargo");
+			System.out.println("1 - Funcionario");
+			System.out.println("2 - Cargo");
+			System.out.println("3 - Unidade");
+			System.out.println("4 - Relatorios");
 			
 			Integer function = scan.nextInt();
-			
+
 			switch (function) {
-			case 1:
-				cargoService.inicial(scan);
-				break;
-			case 2:
-				funcionarioService.inicial(scan);
-				break;
-			case 3:
-				unidadeTrabalhoService.inicial(scan);
-				break;
-			default:
-				System.out.println("Finalizando");
-				system = false;
-				break;
-		}
+				case 1:
+					funcionarioService.inicial(scan);
+					break;
+				case 2:
+					cargoService.inicial(scan);
+					break;
+				case 3:
+					unidadeTrabalhoService.inicial(scan);
+					break;
+				case 4:
+					relatoriosService.inicial(scan);
+					break;
+				default:
+					System.out.println("Finalizando");
+					system = false;
+					break;
+			}
 		}
 
 	}
