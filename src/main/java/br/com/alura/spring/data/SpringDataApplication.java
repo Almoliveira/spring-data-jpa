@@ -11,6 +11,7 @@ import br.com.alura.spring.data.repository.CargoRepository;
 import br.com.alura.spring.data.service.CrudCargoService;
 import br.com.alura.spring.data.service.CrudFuncionarioService;
 import br.com.alura.spring.data.service.CrudUnidadeTrabalhoService;
+import br.com.alura.spring.data.service.RelatoriosService;
 
 @SpringBootApplication
 public class SpringDataApplication implements CommandLineRunner {
@@ -24,10 +25,11 @@ public class SpringDataApplication implements CommandLineRunner {
 	private Boolean system = true;
 	
 	public SpringDataApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService, 
-			CrudUnidadeTrabalhoService unidadeTrabalhoService) {
+			CrudUnidadeTrabalhoService unidadeTrabalhoService, RelatoriosService relatoriosService) {
 		this.cargoService = cargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeTrabalhoService = unidadeTrabalhoService;
+		this.relatoriosService = relatoriosService;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataApplication.class, args);
